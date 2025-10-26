@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 6166274087310484972}
   - component: {fileID: 8675137879696278074}
   - component: {fileID: 2127799493435627780}
+  - component: {fileID: 1939826343968117470}
   m_Layer: 0
   m_Name: Character
   m_TagString: IA
@@ -325,8 +326,10 @@ MonoBehaviour:
   - {fileID: 7852684223468324561}
   - {fileID: 7523605666305421250}
   - {fileID: 223964814477108959}
-  - {fileID: 393303223927725102}
+  IsReadyToPay: 0
   IsAlReadyBuy: 0
+  CanGoHome: 0
+  AllowedId: 0
 --- !u!54 &2127799493435627780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -354,6 +357,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1939826343968117470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897161248756191034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1163507aa61e647b0cb2696107ff96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1164418971066837656
 GameObject:
   m_ObjectHideFlags: 0

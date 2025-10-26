@@ -22,17 +22,6 @@ public class ProductBaskets : MonoBehaviour
         return true;
     }
 
-    public Collectable GetAvailablCollectable()
-    {
-        for (int i = 0; i < ProductTs.Length; i++)
-        {
-            if (ProductTs[i].childCount > 0)
-            {
-                return ProductTs[i].GetComponentInChildren<Collectable>();
-            }
-        }
-        return null;
-    }
     private Transform GetAvailableT()
     {
         for (int i = 0; i < ProductTs.Length; i++)
@@ -44,6 +33,18 @@ public class ProductBaskets : MonoBehaviour
         }
         return null;
     }
+    public Collectable GetAvailablCollectable()
+    {
+        for (int i = 0; i < ProductTs.Length; i++)
+        {
+            if (ProductTs[i].childCount > 0)
+            {
+                return ProductTs[i].GetComponentInChildren<Collectable>();
+            }
+        }
+        return null;
+    }
+   
     public bool HasCollectables()
     {
         return GetAvailablCollectable() != null;    

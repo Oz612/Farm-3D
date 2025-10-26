@@ -11,6 +11,7 @@ public class IAOrchestra : MonoBehaviour
     private ProductBaskets _productBasketsAvailable;
 
     public List<CharacterIA> CharacterIAs;
+    public CashRegister CashRegister;   
 
     private void Start()
     {
@@ -39,10 +40,12 @@ public class IAOrchestra : MonoBehaviour
             if (CharacterIAs[i].Shopper.CanGoHome)
             {
                 //Codigo ir a casa
+                CharacterIAs[i].MoveToTransform(SpawnT);
             }
             else if (CharacterIAs[i].Shopper.IsReadyToPay)
             {
                 // Ir a caja
+                CharacterIAs[i].MoveToTransform(CashRegister.TargetT);
             }
             else if (CharacterIAs[i].Shopper.IsAlReadyBuy)
             {
@@ -66,7 +69,6 @@ public class IAOrchestra : MonoBehaviour
     //Posicion aleateoria de los IA
     private void ConfigureIA(CharacterIA characterIA)
     {
-
         characterIA.MoveToTransform(_productBasketsAvailable.GoalT);
         characterIA.Shopper.AllowedId = _productBasketsAvailable.AllowedId;
     }

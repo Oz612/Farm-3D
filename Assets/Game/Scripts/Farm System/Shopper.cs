@@ -6,8 +6,8 @@ public class Shopper : MonoBehaviour
     // estaran todos los objetos que se recogen
     public Transform[] CollectableTs;
     private int _currentCollectableTIndex;
-    public bool IsAlReadyBuy; // ya pago ??
     public bool IsReadyToPay; // Listo para pagar?
+    public bool IsAlReadyBuy; // ya pago ??
     public bool CanGoHome;  //Ir a casa ?
     public int AllowedId;
 

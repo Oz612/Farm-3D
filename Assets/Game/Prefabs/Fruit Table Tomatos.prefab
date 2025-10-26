@@ -248,6 +248,7 @@ MonoBehaviour:
   - {fileID: 4049611869066835194}
   - {fileID: 2017441855761431654}
   AllowedId: 0
+  GoalT: {fileID: 1820573336866387795}
 --- !u!65 &4107270694838002557
 BoxCollider:
   m_ObjectHideFlags: 0

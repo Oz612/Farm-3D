@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChashRegister : MonoBehaviour
+public class CashRegister : MonoBehaviour
 {
     public int HereIsPlayer;     // 0 no , 1 yes 
     public int HereIsShopper;    // 0 no , 1 yes 
