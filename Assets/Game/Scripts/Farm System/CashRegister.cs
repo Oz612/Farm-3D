@@ -8,7 +8,7 @@ public class CashRegister : MonoBehaviour
     public Transform TargetT;
 
     //Condicion para cobrar 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -16,8 +16,15 @@ public class CashRegister : MonoBehaviour
         }
         if (other.CompareTag("IA"))
         {
-            HereIsShopper = 1;
             Shopper = other.GetComponent<Shopper>();
+            if (Shopper.IsReadyToPay == false)
+            {
+                Shopper = null;
+                return;
+            }
+
+            HereIsShopper = 1;
+
         }
     }
 
@@ -28,6 +35,7 @@ public class CashRegister : MonoBehaviour
         {
             if (Shopper == null) return;
             if (Shopper.IsAlReadyBuy == true) return;
+            if (Shopper.IsReadyToPay == false) return;
             int purchaseVale = Shopper.GetAvailableCollectableCount() * 20;
             Shopper.IsAlReadyBuy = true;
             Shopper.CanGoHome = true;

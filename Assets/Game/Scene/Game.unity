@@ -1582,11 +1582,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603090096}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &629001501 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5472578936753189702, guid: 8d6c521b5f2f2ca48b28a1e4bc4d4ed6, type: 3}
-  m_PrefabInstance: {fileID: 7649710122449720018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &649737887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 05c08c126930b674b9fba43409fc0185, type: 3}
@@ -2081,11 +2076,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1664923883}
   m_SourcePrefab: {fileID: 100100000, guid: 05c08c126930b674b9fba43409fc0185, type: 3}
---- !u!4 &1149323765 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1820573336866387795, guid: f3f5afde32fa3f04ba60d629f172c72d, type: 3}
-  m_PrefabInstance: {fileID: 216535871335216537}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1175859620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3719,10 +3709,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruit Table Tomatos
       objectReference: {fileID: 0}
-    - target: {fileID: 1758332985900931812, guid: f3f5afde32fa3f04ba60d629f172c72d, type: 3}
-      propertyPath: GoalT
-      value: 
-      objectReference: {fileID: 1149323765}
+    - target: {fileID: 1820573336866387795, guid: f3f5afde32fa3f04ba60d629f172c72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820573336866387795, guid: f3f5afde32fa3f04ba60d629f172c72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4084,10 +4078,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8697431400880303287, guid: 8d6c521b5f2f2ca48b28a1e4bc4d4ed6, type: 3}
-      propertyPath: GoalT
-      value: 
-      objectReference: {fileID: 629001501}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

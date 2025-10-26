@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,11 @@ public class IAOrchestra : MonoBehaviour
     private ProductBaskets _productBasketsAvailable;
 
     public List<CharacterIA> CharacterIAs;
-    public CashRegister CashRegister;   
+    public CashRegister CashRegister;
+
+    //Queue de personajes IA
+    public Transform[] TargetTsQueue;
+    public List<CharacterIA> CharacterIAsQueue;
 
     private void Start()
     {
@@ -34,18 +39,19 @@ public class IAOrchestra : MonoBehaviour
                 _CreationTimer = 0;
             }
         }
-        //Recoger cada IA
+
+        //Tranyectoria de la IA
         for (int i = 0; i < CharacterIAs.Count; i++)
         {
             if (CharacterIAs[i].Shopper.CanGoHome)
             {
                 //Codigo ir a casa
-                CharacterIAs[i].MoveToTransform(SpawnT);
+                GoHome(CharacterIAs[i]);
             }
             else if (CharacterIAs[i].Shopper.IsReadyToPay)
             {
                 // Ir a caja
-                CharacterIAs[i].MoveToTransform(CashRegister.TargetT);
+                AddElementQueue(CharacterIAs[i]);
             }
             else if (CharacterIAs[i].Shopper.IsAlReadyBuy)
             {
@@ -53,6 +59,32 @@ public class IAOrchestra : MonoBehaviour
             }
         }
     }
+
+    private void AddElementQueue(CharacterIA characterIA)
+    {
+        if (CharacterIAsQueue.Contains(characterIA) == true) return;
+
+        CharacterIAsQueue.Add(characterIA);
+        OrganizeQueue();
+    }
+
+    private void OrganizeQueue()
+    {
+        for (int i = 0; i < CharacterIAsQueue.Count; i++)
+        {
+            CharacterIAsQueue[i].MoveToTransform(TargetTsQueue[i]);
+        }
+    }
+
+    //Destruircion de IA
+    private void GoHome(CharacterIA characterIA)
+    {
+        if(CharacterIAs.Contains(characterIA) == false) return;
+        CharacterIAs.Remove(characterIA);
+        characterIA.MoveToTransform(SpawnT);
+        Destroy(characterIA.transform.parent.gameObject, 15);
+    }
+
     private bool IsAvailableProducts()
     {
        for (int i = 0; i < ProductBaskets.Length; i++)
@@ -66,7 +98,7 @@ public class IAOrchestra : MonoBehaviour
         return false;
     }
 
-    //Posicion aleateoria de los IA
+    //Posicion aleateoria de los IA de ir a recoger los productos
     private void ConfigureIA(CharacterIA characterIA)
     {
         characterIA.MoveToTransform(_productBasketsAvailable.GoalT);

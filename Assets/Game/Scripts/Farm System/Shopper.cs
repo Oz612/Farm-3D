@@ -19,17 +19,20 @@ public class Shopper : MonoBehaviour
         if (other.CompareTag("FruitTable"))
         {
             //ubicacion de los objetocos canasta de fruta para ventas
+            if (_currentCollectableTIndex == CollectableTs.Length) return;
+
             ProductBaskets productBastkets = other.GetComponent<ProductBaskets>();
             Collectable collectable = productBastkets.GetAvailablCollectable();
             if (collectable == null) 
             {
+                if(HasProductsIA() == false)
                 CanGoHome = true;
                 return;
             }
             if (collectable.Id != AllowedId) return;
             if (collectable.IsReadyToBuy == false) return; 
             if (collectable.HasOwner == true) return; 
-            if (_currentCollectableTIndex == CollectableTs.Length) return;
+            
             collectable.SetLocalPositionToParent(CollectableTs[_currentCollectableTIndex]);
             collectable.HasOwner = true;
             collectable.IsReadyToBuy = true;

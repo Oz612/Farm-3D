@@ -61,6 +61,15 @@ public class CharacterIA : MonoBehaviour
         Move(TargetT.position);
     }
 
+    internal bool Contains()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal bool Contains(CharacterIA characterIA)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 
