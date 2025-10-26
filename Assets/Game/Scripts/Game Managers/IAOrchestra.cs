@@ -109,9 +109,6 @@ public class IAOrchestra : MonoBehaviour
     //Posicion aleateoria de los IA de ir a recoger los productos
     private void ConfigureIA(CharacterIA characterIA)
     {
-        //int rdnPos = UnityEngine.Random.Range(0, ProductBaskets.Length);
-        //ProductBaskets baskets = ProductBaskets[rdnPos];
-        //characterIA.MoveToTransform(baskets.GoalT);
         characterIA.MoveToTransform(_productBasketsAvailable.GoalT);
         characterIA.Shopper.AllowedId = _productBasketsAvailable.AllowedId;
     }

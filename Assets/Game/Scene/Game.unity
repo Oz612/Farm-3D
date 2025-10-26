@@ -3873,6 +3873,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
+--- !u!4 &1999791705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3906969549163476962, guid: cf7f4994c05dbff4bb1fe4bc856bcc66, type: 3}
+  m_PrefabInstance: {fileID: 305505919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2000894358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,6 +3890,7 @@ GameObject:
   - component: {fileID: 2000894360}
   - component: {fileID: 2000894359}
   - component: {fileID: 2000894362}
+  - component: {fileID: 2000894363}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4063,6 +4069,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2000894363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000894358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6346b619b11e1e847a16def982037b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1999791705}
+  offset: {x: 8.8, y: 12.5, z: 18.1}
 --- !u!1 &2003814596
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,8 +4212,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1.980198
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
