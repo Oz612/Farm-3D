@@ -212,7 +212,7 @@ MonoBehaviour:
   - {fileID: 8818120376034756536}
   - {fileID: 7626132168622542493}
   - {fileID: 2463920467353200452}
-  MaxGrowthTime: 5
+  MaxGrowthTime: 6
 --- !u!1 &6180129367362379622
 GameObject:
   m_ObjectHideFlags: 0

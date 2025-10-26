@@ -8,12 +8,13 @@ public class Builder : MonoBehaviour
         if (other.CompareTag("BuildObject"))
         {
             BuildObject buildObject = other.GetComponent<BuildObject>();
-            if (buildObject.Price <= 500)
+            if (buildObject.Price <= GameEconomy.Coins)
             {
                 buildObject.Build();
+                GameEconomy.Coins -= buildObject.Price;
             }
 
-            
+
 
         }
     }

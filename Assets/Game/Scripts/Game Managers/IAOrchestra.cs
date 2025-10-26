@@ -43,19 +43,20 @@ public class IAOrchestra : MonoBehaviour
         //Tranyectoria de la IA
         for (int i = 0; i < CharacterIAs.Count; i++)
         {
-            if (CharacterIAs[i].Shopper.CanGoHome)
+            if (CharacterIAs[i].Shopper.IsAlReadyBuy) 
             {
                 //Codigo ir a casa
-                GoHome(CharacterIAs[i]);
+                RemoveElementQueue(CharacterIAs[i]);
             }
             else if (CharacterIAs[i].Shopper.IsReadyToPay)
             {
                 // Ir a caja
                 AddElementQueue(CharacterIAs[i]);
             }
-            else if (CharacterIAs[i].Shopper.IsAlReadyBuy)
+            else if (CharacterIAs[i].Shopper.CanGoHome)
             {
                 //Codigo ir a casa
+                GoHome(CharacterIAs[i]);
             }
         }
     }
@@ -65,6 +66,13 @@ public class IAOrchestra : MonoBehaviour
         if (CharacterIAsQueue.Contains(characterIA) == true) return;
 
         CharacterIAsQueue.Add(characterIA);
+        OrganizeQueue();
+    }
+    private void RemoveElementQueue(CharacterIA characterIA)
+    {
+        if (CharacterIAsQueue.Contains(characterIA) == false) return;
+        CharacterIAsQueue.Remove(characterIA);
+        GoHome(characterIA);
         OrganizeQueue();
     }
 
@@ -101,6 +109,9 @@ public class IAOrchestra : MonoBehaviour
     //Posicion aleateoria de los IA de ir a recoger los productos
     private void ConfigureIA(CharacterIA characterIA)
     {
+        //int rdnPos = UnityEngine.Random.Range(0, ProductBaskets.Length);
+        //ProductBaskets baskets = ProductBaskets[rdnPos];
+        //characterIA.MoveToTransform(baskets.GoalT);
         characterIA.MoveToTransform(_productBasketsAvailable.GoalT);
         characterIA.Shopper.AllowedId = _productBasketsAvailable.AllowedId;
     }
